@@ -1,18 +1,18 @@
 
-var canvas = document.getElementById('myCanvas');
-var ctx = canvas.getContext('2d');
+//var canvas = document.getElementById('myCanvas');
+//var ctx = canvas.getContext('2d');
 
-canvas.width=800
-canvas.height=600
+//canvas.width=800
+//canvas.height=600
 
 // Code temporaire pour tester le DnD
-new DnD(canvas);
-ctx.fillStyle = '#F0F0F0'; // set canvas' background color
-ctx.fillRect(0, 0, canvas.width, canvas.height);  // now fill the canvas
+//new DnD(canvas);
+//ctx.fillStyle = '#F0F0F0'; // set canvas' background color
+//ctx.fillRect(0, 0, canvas.width, canvas.height);  // now fill the canvas
 /////
 
-// Code temporaire pour tester l'affiche de la vue
-//var rec = new Rectangle(10, 20, 50, 100, 5, '#00CCC0');
+//Code temporaire pour tester l'affiche de la vue
+//var rec = new Rectangle(100, 20, 50, 100, 5, '#00CCC0');
 //rec.paint(ctx);
 //var ligne = new Rectangle(10, 20, 50, 100, 5, '#00CCC0');
 //ligne.paint(ctx);
@@ -24,3 +24,17 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);  // now fill the canvas
 //var pencil = new Pencil(ctx, drawing, canvas);
 //drawing.paint(ctx, canvas);
 
+window.onload = function() {
+    // This is the correct and final code for your application's entry point.
+    // All other temporary code should be removed.
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 800;
+    canvas.height = 600;
+
+    const drawing = new Drawing();
+    const pencil = new Pencil(ctx, drawing, canvas);
+    
+    // Peindre le fond du canvas au démarrage
+    drawing.paint(ctx, canvas);
+};

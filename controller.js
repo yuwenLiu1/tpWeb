@@ -49,7 +49,8 @@ function Pencil(ctx, drawing, canvas) {
 
     this.onInteractionUpdate = (dnd) => {
         if (!this.currentShape) return;
-
+        this.currentShape.thickness = this.currLineWidth;
+        
         if (this.currentShape instanceof Rectangle) {
             this.currentShape.width = Math.abs(dnd.endX - dnd.startX);
             this.currentShape.height = Math.abs(dnd.endY - dnd.startY);
@@ -80,5 +81,7 @@ function Pencil(ctx, drawing, canvas) {
         this.drawing.addShape(this.currentShape);
         this.currentShape = null;
         this.drawing.paint(this.ctx, this.canvas);
-    };
+        
+        updateShapeList(this.drawing);
+    }; 
 }

@@ -18,26 +18,33 @@ function Drawing() {
             this.shapes.splice(index, 1);
         }
     };
+    this.paint = function(ctx, canvas) {
+        ctx.fillStyle = '#F0F0F0';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        this.shapes.forEach(function(shape) {
+            shape.paint(ctx);
+        });
+    };
 }
 
-function Shape(color, thickness) {
+function Shape(startX, startY,color, thickness) {
+    this.startX = startX;
+    this.startY = startY;
     this.color = color;
     this.thickness = thickness;
 }
 
 function Rectangle(startX, startY, endX, endY, color, thickness) {
-    Shape.call(this, color, thickness);
-    this.startX = startX;
-    this.startY = startY;
+    Shape.call(this, startX, startY, color, thickness);
+
     this.width = endX - startX;
     this.height = endY - startY;
 }
 Rectangle.prototype = new Shape();
 
 function Line(startX, startY, endX, endY, color, thickness) {
-    Shape.call(this, color, thickness);
-    this.startX = startX;
-    this.startY = startY;
+    Shape.call(this, startX, startY, color, thickness);
+
     this.endX = endX;
     this.endY = endY;
 }

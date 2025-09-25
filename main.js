@@ -25,8 +25,7 @@
 //drawing.paint(ctx, canvas);
 
 window.onload = function() {
-    // This is the correct and final code for your application's entry point.
-    // All other temporary code should be removed.
+
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = 800;
@@ -34,7 +33,5 @@ window.onload = function() {
 
     const drawing = new Drawing();
     const pencil = new Pencil(ctx, drawing, canvas);
-    
-    // Peindre le fond du canvas au démarrage
     drawing.paint(ctx, canvas);
 };
